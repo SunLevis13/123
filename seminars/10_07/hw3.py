@@ -35,7 +35,6 @@ def func(x):
     print(spisok) 
     sum = 0
     for i in range(len(f)):
-        #new_f.append(func[pow((1+1/func[len(func)-i-1]),func[len(func)-i-1])])
         new_f.append (round((pow((1+1/spisok[len(spisok)-i-1]),spisok[len(spisok)-i-1])),3))
         sum += new_f[i]
     print(new_f)
