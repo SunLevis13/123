@@ -27,27 +27,18 @@
 
 # print("Сумма цифр числа равна:", sum)
 
-num = 3.1415926
-str_num = str(num)
-str_num = str_num.replace('.', '')  # 31415926
-lst_str = list(str_num)  # ['3', '1', '4', '1', '5', '9', '2', '6']
-print(lst_str)
-print(type(lst_str))
-i = 0
-sum = 0
-print(len(lst_str))  # 8
-for i in range(len(lst_str)):
-    n = int(input(lst_str[i]))
-    sum += n
-    i += 1
+
+def func(num):
+    str_num = str(num)
+    str_num = str_num.replace('.', '')  # 31415926
+    lst_str = list(str_num)  # ['3', '1', '4', '1', '5', '9', '2', '6']
+    print(lst_str)
+    sum=0
     
-print(sum)
-# print(n)
-# sum += lst_str[i]
-# i+=1
-# print(i)
+    for i in range(len(lst_str)):
+        sum += int((lst_str[i]))
+        
+    print(f'Сумма цифа числа {num} = ',sum)
+num = float(input('Введите вещественное число: '))
+func(num)
 
-
-# lst_num = map(int, lst_str)
-# s = sum(lst_num)
-# print(s)
