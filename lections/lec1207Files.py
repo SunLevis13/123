@@ -39,19 +39,33 @@
 #     print(item)
 
 
-dictionary = {}
-dictionary = \
-    {
-        'up': '↑',
-         'left': '←',
-         'down': '↓',
-         'right': '→'
-    }
-print(dictionary)  # {'up':'↑', 'left':'←', 'down':'↓', 'right':'→'}
-print(dictionary['left']) 
+# dictionary = {}
+# dictionary = \
+#     {
+#         'up': '↑',
+#          'left': '←',
+#          'down': '↓',
+#          'right': '→'
+#     }
+# print(dictionary)  # {'up':'↑', 'left':'←', 'down':'↓', 'right':'→'}
+# print(dictionary['left']) 
 
-for k in dictionary.keys():
-    print(k)
+# for k in dictionary.keys():
+#     print(k)
 
-for k in dictionary.values():
-    print(k)
+# for k in dictionary.values():
+#     print(k)
+
+
+from re import A
+
+
+a = {1,2,3,4}
+b = {2,3,4,5}
+i = a.intersection(b)
+print(i)
+
+q = a\
+    .union(b)\
+    .difference(a.intersection(b))
+print(q)
