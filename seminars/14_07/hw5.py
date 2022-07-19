@@ -3,7 +3,7 @@
 def fibonacci(N): 
     fibo_nums = []
     a, b = 1, 1
-    for i in range(N-1):
+    for i in range(N):
         fibo_nums.append(a)
         a, b = b, a + b # 1 2  
     a, b = 0, 1
