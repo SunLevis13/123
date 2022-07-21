@@ -15,15 +15,15 @@ rand_list = fillArrayRandom(k,0,101)
 print(rand_list)
 
 def get_func(k,rand_list):
-    str1 = ['*x**']*(k-1) + ['*x']
+    str1 = ['*x**']*(k-1) + ['*x'] # прописываем формулу: k-1 чтобы повтор связки N*x^k соответствовала числу k
     mnogochlen = [[a, b, c] for a, b, c  in itertools.zip_longest(rand_list, str1, range(k, 1, -1), fillvalue = '') if a !=0]
-    print(mnogochlen)
+    print(mnogochlen) # сделали кортежи с обьединением функцией zip
 
     for x in mnogochlen:
         x.append(' + ') # проставляем + между кортежами
     mnogochlen = list(itertools.chain(*mnogochlen)) # объединяем в один список
     print(mnogochlen)
-    mnogochlen[-1] = ' = 0' # добавляем концовочку (меняем последний '+' на '= 0')
+    mnogochlen[-1] = ' = 0' # замена последнего '+' на '= 0'
     return "".join(map(str, mnogochlen)) # возвращаем строку
 
 list = get_func(k, rand_list)
