@@ -6,6 +6,7 @@ def func(num):
     print(lst_str)
     sum=0
     
+    
     for i in range(len(lst_str)):
         sum += int(lst_str[i])
         
