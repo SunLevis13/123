@@ -1,6 +1,8 @@
 import oper
 import data
 from view import input_data, view_data
+from logger import data_logger
+from data import a,b
 
 def btm():
     num_data = (int(input('Первое число: ')), int(input('Второе число: ')))
@@ -14,4 +16,7 @@ def btm():
         case _:
             res = 'NONE'
     view_data(text='Результат: ', data=res)
+
+
+    data_logger(a,b,res,znak)
 
