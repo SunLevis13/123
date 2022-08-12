@@ -9,26 +9,33 @@ def start_table():
         page.write('|             NAME             |             TEL             |\n')
         page.write('______________________________________________________________\n')
 
-def btm():
+def name_receive():
     a = input('Введите ФИО: ')
-    b = str(input('Введите телефон: '))
-    # with open ('name_tel.csv','a', encoding="utf-8") as page:
-        
-    #     page.write('______________________________________________________________\n')
-    if b.isdigit() == True:
-        with open ('name_tel.csv','a', encoding="utf-8") as page: # создаем файл csv  и сохраняем его
+       
+    with open ('name_tel.csv','a', encoding="utf-8") as page: # создаем файл csv  и сохраняем его
             page.write(f'  {a}')
+    
+    return a
+    
+def tel_receive():
+    b = str(input('Введите телефон: '))
+    
+    if b.isdigit() == True:
+        with open ('name_tel.csv','a') as page: # создаем файл csv  и сохраняем его
+            
             page.write(f'                {b}\n')
             page.write('______________________________________________________________\n')
     else:
         b = input('Введите телефон, используя только цифры:')
         if b.isdigit() == True:
-            with open ('name_tel.csv','a', encoding="utf-8") as page: # создаем файл csv  и сохраняем его
-                page.write(f'  {a}')
+            with open ('name_tel.csv','a') as page: # создаем файл csv  и сохраняем его
+                
                 page.write(f'                {b}\n')
                 page.write('______________________________________________________________\n')
-    return a,b
-    
+    return b
+
+
+
     # data_base(name,tel)
     # view_data(text='|')
 
