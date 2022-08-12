@@ -1,5 +1,5 @@
 
-from telegram import Update
+# from telegram import Update
 from telegram.ext import ApplicationBuilder, CommandHandler, ContextTypes
 from bot_commands import *
 
