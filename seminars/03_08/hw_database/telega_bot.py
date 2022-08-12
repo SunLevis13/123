@@ -8,9 +8,9 @@ app = ApplicationBuilder().token('5467090782:AAGmpzB3bDp0sbcAItgUMYgxbL4mIKI5O9c
 print('server start')
 
 app.add_handler(CommandHandler("hello", hi_command))
-app.add_handler(CommandHandler("time", time_command))
-app.add_handler(CommandHandler("help", help_command))
-app.add_handler(CommandHandler("sum", sum_command))
+app.add_handler(CommandHandler("name", name_command))
+app.add_handler(CommandHandler("tel", tel_command))
+# app.add_handler(CommandHandler("sum", sum_command))
 
 
 app.run_polling()
