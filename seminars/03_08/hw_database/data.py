@@ -1,10 +1,10 @@
 import controller as contr
 
 
-def name_view(x):
-    data = contr.btm(x)
+def name_data():
+    data = contr.name_receive()
     return data
 
-def tel_view(x):
-    data = contr.btm(x)
+def tel_data():
+    data = contr.tel_receive()
     return data

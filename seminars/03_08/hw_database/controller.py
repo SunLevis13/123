@@ -1,8 +1,4 @@
 # import datatime
-# from view import view_data
-# from data import data_base
-# from data import a,b
-
 
 def start_table():
     with open ('name_tel.csv','a') as page:

@@ -1,13 +1,15 @@
-from controller import name_receive
-from controller import tel_receive
+from data import name_data
+from data import tel_data
+a = name_data()
+b = tel_data()
 
-def create (a,b): #получаем значения
+def create (): #получаем значения
     style = 'style="font-size:22px;"' # стиль шрифта в html представлении
     html = '<html>\n <head></head>\n <body>\n' # шаблон представления html
     html += '    <p {}>Name: {} </p>\n'\
-        .format(style,name_receive(a))
+        .format(style,a)
     html += '    <p {}>Tel.number: {} </p>\n'\
-        .format(style,tel_receive(b))
+        .format(style,b)
     html += '   </body>\n</html>'
   
 
