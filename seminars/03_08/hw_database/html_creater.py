@@ -1,9 +1,9 @@
 from data import name_data
 from data import tel_data
-a = name_data()
-b = tel_data()
 
 def create (): #получаем значения
+    a = name_data()
+    b = tel_data()
     style = 'style="font-size:22px;"' # стиль шрифта в html представлении
     html = '<html>\n <head></head>\n <body>\n' # шаблон представления html
     html += '    <p {}>Name: {} </p>\n'\
