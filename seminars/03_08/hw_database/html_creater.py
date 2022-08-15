@@ -1,15 +1,14 @@
-from data import name_data
-from data import tel_data
+import data_base
+
 
 def create (): #получаем значения
-    a = name_data()
-    b = tel_data()
+    
     style = 'style="font-size:22px;"' # стиль шрифта в html представлении
     html = '<html>\n <head></head>\n <body>\n' # шаблон представления html
     html += '    <p {}>Name: {} </p>\n'\
-        .format(style,a)
+        .format(style,data_base.name_data())
     html += '    <p {}>Tel.number: {} </p>\n'\
-        .format(style,b)
+        .format(style,data_base.tel_data())
     html += '   </body>\n</html>'
   
 
