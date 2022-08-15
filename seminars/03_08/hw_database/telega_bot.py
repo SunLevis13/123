@@ -10,6 +10,7 @@ print('server start')
 app.add_handler(CommandHandler("hello", hi_command))
 app.add_handler(CommandHandler("name", name_command))
 app.add_handler(CommandHandler("tel", tel_command))
+app.add_handler(CommandHandler("help", help_command))
 # app.add_handler(CommandHandler("sum", sum_command))
 
 
