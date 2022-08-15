@@ -2,14 +2,15 @@ from pytube import YouTube
 from tkinter import *
 
 root = Tk()
-root.geometry('500x300')
+root.configure(bg = 'Orchid')
+root.geometry('500x300+500+200')
 root.resizable(0,0)
 root.title('Youtube Downloader')
 
-Label(root, text = 'My Youtube Downloader', font = 'arial 15 bold').pack()
+Label(root, text = 'My Youtube Downloader', font = 'arial 15 bold',bg = 'Orchid').pack()
 
 link = StringVar()
-Label(root, text = 'Paste the video link: ', font = 'arial 15 bold').place(x=160,y=60)
+Label(root, text = 'Paste the video link: ', font = 'arial 15 bold',bg = 'Orchid').place(x=160,y=60)
 link_enter = Entry(root,width = 70, textvariable = link).place(x = 32, y = 90)
 
 def Downloader():
