@@ -3,7 +3,8 @@ from time import time
 from pathlib import Path
 
 def name_logger(x):
-    time=dt.now()#.strftime('%H:%M') # получили данные о времени в формате час:минута
+    # time=dt.now()#.strftime('%H:%M') # получили данные о времени в формате час:минута
+    time=dt.now().strftime('%H:%M:%S')
     with open('logtelname.csv','a') as log_file: # создали файл log.csv куда записываем данные
         log_file.write('----------------------------------------')
         log_file.write('\n Time of adding new data: {}\n' .format(time))
@@ -11,7 +12,8 @@ def name_logger(x):
         log_file.write('Name: {}\n' .format(x))
 
 def tel_logger(x):
-    time=dt.now()#.strftime('%H:%M') # получили данные о времени в формате час:минута
+    # time=dt.now()#.strftime('%H:%M') # получили данные о времени в формате час:минута
+    time=dt.now().strftime('%H:%M:%S')
     with open('logtelname.csv','a') as log_file: # создали файл log.csv куда записываем данные
         log_file.write('----------------------------------------')
         log_file.write('\n Time of adding new data: {}\n' .format(time))

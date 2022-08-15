@@ -1,6 +1,7 @@
 # import datatime
-from logger import name_logger
-from logger import tel_logger
+import files
+# from logger import name_logger
+# from logger import tel_logger
 
 def start_table():
     with open ('name_tel.csv','a') as page:
@@ -12,8 +13,9 @@ def name_receive():
        
     with open ('name_tel.csv','a', encoding="utf-8") as page: # создаем файл csv  и сохраняем его
             page.write(f'  {a}')
+    files.name_logger(a)
     return a
-    name_logger(a)
+
     
 def tel_receive():
     b = str(input('Введите телефон: '))
@@ -30,9 +32,9 @@ def tel_receive():
                 
                 page.write(f'                {b}\n')
                 page.write('______________________________________________________________\n')
-    
+    files.tel_logger(b)
     return b
-    tel_logger(b)
+    
 
     # data_base(name,tel)
     # view_data(text='|')

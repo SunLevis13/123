@@ -5,5 +5,5 @@ start_table()
 name_receive()
 tel_receive()
 
-import html_creater as hc
-print(hc.create())
+import files
+print(files.create())
