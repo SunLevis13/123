@@ -1,6 +1,10 @@
+import sqlite3
 from telegram import Update
 from telegram.ext import ApplicationBuilder, CommandHandler, CallbackContext, ContextTypes
 import files
+
+
+
 # from spion import *
 # import datetime
 
@@ -19,6 +23,7 @@ async def name_command(update: Update, context: CallbackContext):
 async def tel_command(update: Update, context: CallbackContext):
     files.log(update, context)
     await update.message.reply_text(f'Введите телефон:')
+
 
 # async def sum_command(update: Update, context: CallbackContext):
 #     log(update, context)

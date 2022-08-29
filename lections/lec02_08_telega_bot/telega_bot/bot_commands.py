@@ -2,10 +2,16 @@ from telegram import Update
 from telegram.ext import ApplicationBuilder, CommandHandler, CallbackContext
 from spy import *
 import datetime
+import asyncio
+import types
+from aiogram import Bot, Dispatcher, executor, types
+from aiogram.utils.markdown import *
 
 async def hi_command(update: Update, context: CallbackContext):
     log(update, context)
     await update.message.reply_text(f'Hi {update.effective_user.first_name}!')
+    await asyncio.sleep(1)
+    await bot.send_chat_action(call.message.chat.id, types.ChatActions.UPLOAD_DOCUMENT)
 
 async def help_command(update: Update, context: CallbackContext):
     log(update, context)

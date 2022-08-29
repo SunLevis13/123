@@ -14,8 +14,8 @@ if __name__ == '__main__':
     app.add_handler(CommandHandler("tel", tel_command))
     app.add_handler(CommandHandler("help", help_command))
     
-    app.run_polling() 
-
+    app.run_polling()
+    
 async def echo(update: Update, context: ContextTypes.DEFAULT_TYPE):
     await context.bot.send_message(chat_id=update.effective_chat.id, text=update.message.text)
 
