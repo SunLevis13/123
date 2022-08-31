@@ -1,4 +1,5 @@
-from turtle import update
+from telegram import Update
+from telegram.ext import ApplicationBuilder, CommandHandler, ContextTypes,filters, MessageHandler, CallbackContext
 import config
 import logging
 import asyncio
@@ -11,9 +12,25 @@ from sqlighter import SQLighter
 logging.basicConfig(level=logging.INFO)
 
 # инициализируем бота
-bot = Bot(token=config.API_TOKEN)
-dp = Dispatcher(bot)
+# bot = Bot(token=config.API_TOKEN)
+# dp = Dispatcher(bot)
 
+async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    await context.bot.send_message(chat_id=update.effective_chat.id, text="Hi, {update.effective_user.first_name}! I'm a subscribe bot!")
+
+if __name__ == '__main__':
+    bot = ApplicationBuilder().token('5467090782:AAGmpzB3bDp0sbcAItgUMYgxbL4mIKI5O9c').build()
+	
+    print('server start')
+   
+    bot.add_handler(CommandHandler('start', start))
+       
+    bot.run_polling()
+    
+async def echo(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    await context.bot.send_message(chat_id=update.effective_chat.id, text=update.message.text)	
+
+dp = Dispatcher(bot)
 # инициализируем соединение с БД
 db = SQLighter('db.db')
 
@@ -41,35 +58,14 @@ async def unsubscribe(message: types.Message):
 		db.update_subscription(message.from_user.id, False)
 		await message.answer("Вы успешно отписаны от рассылки.")
 
-	while True:
-		await asyncio.sleep(wait_for)
+if __name__ == '__main__':
+	...
+	echo_handler = MessageHandler(filters.TEXT & (~filters.COMMAND), echo)
+    
+	bot.add_handler(CommandHandler('start', start))
+	bot.add_handler(echo_handler)
 
-		# проверяем наличие новых игр
-		new_games = sg.new_games()
+	bot.run_polling()
 
-		if(new_games):
-			# если игры есть, переворачиваем список и итерируем
-			new_games.reverse()
-			for ng in new_games:
-				# парсим инфу о новой игре
-				nfo = sg.game_info(ng)
-
-				# получаем список подписчиков бота
-				subscriptions = db.get_subscriptions()
-
-				# отправляем всем новость
-				with open(sg.download_image(nfo['image']), 'rb') as photo:
-					for s in subscriptions:
-						await bot.send_photo(
-							s[1],
-							photo,
-							caption = nfo['title'] + "\n" + "Оценка: " + nfo['score'] + "\n" + nfo['excerpt'] + "\n\n" + nfo['link'],
-							disable_notification = True
-						)
-				
-				# обновляем ключ
-				sg.update_lastkey(nfo['id'])
-
-# запускаем лонг поллинг
 if __name__ == '__main__':
 	executor.start_polling(dp, skip_updates=True)
